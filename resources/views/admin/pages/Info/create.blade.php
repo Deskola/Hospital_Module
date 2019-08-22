@@ -96,33 +96,39 @@
                 <p class="text-info">Family Medical Information</p>
                     <div class="row">
                         <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                <label for="religion" class="control-label">Family member Affected</label>
+                                <input type="text" class="form-control" name="family_member" id="family_member" placeholder="Hereditary Diseases">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-md-9">
                                     <label for="religion" class="control-label">Hereditary Diseases</label>
-                                    <input type="number" class="form-control" name="hereditary_diseases" id="hereditary_diseases" placeholder="">
+                                    <input type="text" class="form-control" name="hereditary_diseases" id="hereditary_diseases" placeholder="Hereditary Diseases">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-9">                                    
                                     <label for="Date_of_Birth" class=" control-label">Mental health conditionsh and Substance Abuse</label>
-                                    <input type="text" class="form-control" name="mental_health_condition" id="mental_health_condition" placeholder="Date Of birth" >                            
+                                    <input type="text" class="form-control" name="mental_health_condition" id="mental_health_condition" placeholder="Mental health conditionsh and Substance Abuse" >                            
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <div class="col-sm-9">
-                                    <label for="school_attended" class=" control-label">Residential Area</label>
-                                    <input type="text" name="residential_area" class="form-control" id="residential_area" placeholder="Residential Area" required>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">                                    
+                                <label for="Date_of_Birth" class=" control-label">Mental health conditionsh and Substance Abuse</label>
+                                <input type="text" class="form-control" name="mental_health_condition" id="mental_health_condition" placeholder="Mental health conditionsh and Substance Abuse" >                            
                             </div>
-
-                             <div class="form-group">
-                                <div class="col-sm-9">
-                                    <label class=" control-label">Email Address</label>
-                                    <input type="email" class="form-control" name="email_address" id="email_address" placeholder="Email address" required>
-                                </div>
+                            </div>  
+                        <div class="form-group">
+                            <div class="col-sm-9">                                    
+                                <label for="Date_of_Birth" class=" control-label">Pregnancy complications</label>
+                                <input type="text" class="form-control" name="pregnancy_complications" id="pregnancy_complications" placeholder="Mental health conditionsh and Substance Abuse" >                            
                             </div>
+                        </div>
+                            
                         </div></div><hr> 
 
                 <p class="text-info">Medical History Information</p>
