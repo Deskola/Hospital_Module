@@ -80,7 +80,7 @@
     <a href="/dashboard" class="brand-link">
       <img src="/dist/img/Logo.jpg"  class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Rosamville School</span>
+      <span class="brand-text font-weight-light">Hospital1</span>
     </a>
 
     <!-- Sidebar -->
@@ -113,21 +113,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-graduation-cap"></i>
               <p>
-                Students
+                Personal Infomation
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addStudent" class="nav-link">
+                <a href="/addPatient" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add student</p>
+                  <p>Add Patient</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/viewStudent" class="nav-link">
+                <a href="/viewpatient" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Student</p>
+                  <p>View Patients</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -142,21 +142,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
-              Teachers
+              Medical History
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addTeacher" class="nav-link">
+                <a href="/addMedicalHist" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Teacher</p>
+                  <p>Add History</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/viewTeachers" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Teachers</p>
+                  <p>View History</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -171,21 +171,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
-              Class
+              Family Medical History
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addClass" class="nav-link">
+                <a href="/addFamilyHist" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Class</p>
+                  <p>Add History</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/viewClass" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Class</p>
+                  <p>View History</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -200,21 +200,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
               <p>
-                Subjects
+                Medication History
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addSubject" class="nav-link">
+                <a href="/addMedicationHist" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Subject</p>
+                  <p>Add History</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/viewSubjectDetails" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Details</p>
+                  <p>View History</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -229,27 +229,27 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-file-text-o"></i>
               <p>
-                Exams
+                Treatment History
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/exams/create" class="nav-link">
+                <a href="/addTreatmentHist" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Exam</p>
+                  <p>Add History</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/exams/" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Details</p>
+                  <p>View History</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/addResults" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Results</p>
+                  <p>Add Lab Results</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -270,7 +270,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-money"></i>
               <p>
-                Fees
+                Medical Directives
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
@@ -287,206 +287,9 @@
                   <p>Fee Details</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/feeCollectionDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Fee collection Details</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-bank"></i>
-              <p>
-                Account
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/newTransaction" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>New Transaction</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/transactionDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Transaction Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/allTransactions" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>All Transactions</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/accountSummary" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Account Summary</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/printAccountSummary" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Print Account Summary</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/printTransactionDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Print Transaction Details</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-check-square"></i>
-              <p>
-                  Student Attendance
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/addAttendance" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Student Attendance</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/viewAttendance" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Students Attendance</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
-              <p>
-                Users
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/addUser" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/userDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>User Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/manageUsers" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Manage Users</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-dollar"></i>
-              <p>
-                Payment
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/addPayment" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add Payment</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/paymentDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Payment Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/printPaymentDetails" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Print Details</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-money"></i>
-              <p>
-                Expenditures
-                <i class="fa fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/expenditures/create" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Add New Expenditure</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/expenditures" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View Past Expenditures</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/expenditures/print" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Print Details</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-header">REPORTS</li>
-          <li class="nav-item">
-            <a href="/studentRegistrationsReport" class="nav-link">
-              <i class="nav-icon fa fa-circle-o text-danger"></i>
-              <p class="text">Student Registrations</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/feeReport" class="nav-link">
-              <i class="nav-icon fa fa-circle-o text-warning"></i>
-              <p>Fee Payment Report</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/performanceReport" class="nav-link">
-              <i class="nav-icon fa fa-circle-o text-info"></i>
-              <p>Performance Report</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/teachersReport" class="nav-link">
-              <i class="nav-icon fa fa-circle-o text-danger"></i>
-              <p class="text">Teachers Report</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/expenditure/chart" class="nav-link">
-              <i class="nav-icon fa fa-circle-o text-warning"></i>
-              <p>Expenditure Report</p>
-            </a>
-          </li>
-        </ul>
-      </nav>
+              
       <!-- /.sidebar-menu -->
-    </div>
+    </div> -->
     <!-- /.sidebar -->
   </aside>
 
