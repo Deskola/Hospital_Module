@@ -14,7 +14,7 @@ class CreatePersonalInfosTable extends Migration
     public function up()
     {
         Schema::create('personal_infos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->primary();
             $table->integer('national_id',8)->unique();
             $table->string('sur_name');
             $table->string('first_name');

@@ -15,7 +15,7 @@ class CreateMedicalInfosTable extends Migration
     {
         Schema::create('medical_infos', function (Blueprint $table) {
             $table->increments('id')->primary();
-            $table->integer('personal_id');
+            $table->integer('personal_id')->index();
             $table->float('weight');
             $table->float('height');
             $table->integer('temperature');
