@@ -23,13 +23,7 @@ class CreateFamilyInfosTable extends Migration
             $table->text('DR_course_o_death');            
             $table->timestamps();
         });
-        Schema::create('family_infos', function (Blueprint $table) {
-            $table->foreign('personal_id')
-                    ->references('id')
-                    ->on('personal_infos')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-        });
+        
     }
 
     /**

@@ -18,17 +18,22 @@ Route::get('/', function () {
 Route::get('/dashboard','DashboardController@index');
 
 //route a patient's personal info
-Route::get('/addPatient','PersonalInfoController@create');
+Route::get('/addPatient','PagesController@personalInfo');
 Route::get('/viewpatient','PersonalInfoController@index');
+//Route::resource('personalHist','PersonalInfoController');
 
 //route to medical history
-Route::get('/addMedicalHist','MedicalHistController@create');
+//Route::get('/addMedicalHist','MedicalHistController@create');
+//Route::resource('medicalHist','MedicalHistController');
 
 //route to family medical history
-Route::get('/addFamilyHist','FamilyHistController@create');
+//Route::get('/addFamilyHist','FamilyHistController@create');
+//Route::resource('familyHist','FamilyHistController');
 
 //route to medication history
-Route::get('/addMedicationHist','MedicationHistController@create');
+//Route::get('/addMedicationHist','MedicationHistController@create');
+//Route::resource('medicationHist','MedicationHistController');
 
 //route to tratment 
-Route::get('/addTreatmentHist','TreatmentHistController@create');
+//Route::get('/addTreatmentHist','TreatmentHistController@create');
+//Route::resource('treatmentHist','TreatmentHistController');

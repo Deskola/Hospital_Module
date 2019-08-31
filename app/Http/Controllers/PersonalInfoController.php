@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\personalInfo;
+use App\familyInfo;
+use App\medicalInfo;
 
 class PersonalInfoController extends Controller
 {
@@ -14,7 +17,10 @@ class PersonalInfoController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.Info.view');
+        $patients = personalInfo::all();
+        $families = familyInfo::all();
+        $medicals = medicalInfo::all();
+        return view('admin.pages.Info.view', compact($families, $medicals))->with('patients', $patients);
        
     }
 
@@ -26,7 +32,8 @@ class PersonalInfoController extends Controller
     public function create()
     {
         //
-        return view('admin.pages.Info.create');
+        
+        
     }
 
     /**

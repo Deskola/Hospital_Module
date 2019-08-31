@@ -14,7 +14,7 @@ class CreateMedicalInfosTable extends Migration
     public function up()
     {
         Schema::create('medical_infos', function (Blueprint $table) {
-            $table->increments('id')->primary();
+            $table->increments('id');
             $table->integer('personal_id')->index();
             $table->float('weight');
             $table->float('height');
@@ -23,13 +23,7 @@ class CreateMedicalInfosTable extends Migration
             $table->text('Reason_for_visit');
             $table->timestamps();
         });
-        Schema::create('medical_infos', function (Blueprint $table) {
-            $table->foreign('personal_id')
-                    ->references('id')
-                    ->on('personal_infos')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
-        });
+       
     }
 
     /**
