@@ -7,22 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class personalInfo extends Model
 {
     //
-    public function family()
+    public function familyInfo()
     {
     	return $this->hasOne('App\familyInfo');
     }
 
-    public function medical()
+    public function medicalInfo()
     {
     	return $this->hasMany('App\medicalInfo');
     }
 
-    public function treatment()
+    public function treatmentInfo()
     {
     	return $this->hasMany('App\treatmentInfo');
     }
 
-    public function medication()
+    public function medicationInfo()
     {
     	return $this->hasMany('App\medicationInfo');
     }

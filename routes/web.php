@@ -35,7 +35,7 @@ Route::resource('/patients','PersonalInfoController');
 //route to medication history
 //Route::get('/addMedicationHist','MedicationHistController@create');
 Route::resource('/medicationInfo','MedicationHistController');
-Route::post('/search','MedicationHistController@search');
+//Route::post('/medicationInfo/search','MedicationHistController@search');
 
 //route to tratment 
 //Route::get('/addTreatmentHist','TreatmentHistController@create');

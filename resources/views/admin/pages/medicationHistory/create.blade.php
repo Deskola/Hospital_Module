@@ -22,12 +22,12 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label for="surname" class="col-sm-4 control-label">National ID</label>
-                        <form action="/search" method="POST" role="search">
+                        <form action="/medicationInfo" method="POST" role="search" >
                           {{ csrf_field() }}
                           <div class="input-group">
                               <input type="text" class="form-control" name="nationl_id"
                                   placeholder="Search users"> <span class="input-group-btn">
-                                  <button type="submit" class="btn btn-primary">
+                                  <button type="submit" class="btn btn-primary" name="form1">
                                     <i class="fa fa-search"></i>
                                   </button>                                  
                               </span>
@@ -36,6 +36,8 @@
                     </div>
                 </div>                          
             </div>
+            
+            
                     
         <h1 style="margin-left:20px;">Add Patient's Medication Information</h1>
             <form class="form-horizontal" action="/medicationInfo" enctype="multipart/form-data" method="post">
@@ -125,7 +127,7 @@
           </div><hr>                             
 
         <div class="form-group">
-            <button  type="submit"  class="btn btn-primary mb-2">Submit Details</button>
+            <button  type="submit"  class="btn btn-primary mb-2" name="form2">Submit Details</button>
         </div>
     </div>                            
                       

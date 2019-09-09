@@ -39,19 +39,37 @@ class MedicationHistController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-            'problem_list'=>'required',
-            'allergies_doc'=>'required',
-            'drug_abuse'=>'required',
-            'medication_used'=>'required',
-            'diag_test_res'=>'required',
-            'patient_type'=>'required',
-            'prescription'=>'required',
-            'med_conslt_info'=>'required',
-            'doc_advice'=>'required',
-        ]);
+       
+        if ($request->has('form1')) {
 
-        return "12345";
+            $id = $request->input("nationl_id");
+            //$query = personalInfo::where('national_id',$id)->get();
+            $query = personalInfo::all();      
+
+            //return view('admin.pages.medicationHistory.create')->with('query',$query);
+            //return view('admin.pages.medicationHistory.create');
+            return var_dump($query);
+           // return "Search";
+        }
+
+        if ($request->has('form2')) {            
+            
+                $this->validate($request,[
+                'problem_list'=>'required',
+                'allergies_doc'=>'required',
+                'drug_abuse'=>'required',
+                'medication_used'=>'required',
+                'diag_test_res'=>'required',
+                'patient_type'=>'required',
+                'prescription'=>'required',
+                'med_conslt_info'=>'required',
+                'doc_advice'=>'required',
+            ]);
+
+            return "12345";
+        }
+
+        
     }
 
     /**
@@ -99,12 +117,5 @@ class MedicationHistController extends Controller
         //
     }
 
-    public function search(Request $request){
-        
-        $id = $request->input("nationl_id");
-        $patient_id = personalInfo::find($id);      
-
-        // return view('admin.pages.medicationHistory.create')->with('id',$patient_id);
-        return [$patient_id->sur_name];
-    }
+    
 }
