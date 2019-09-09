@@ -16,7 +16,7 @@
       </div><!-- /.container-fluid -->
     </div>
         <h1 style="margin-left:20px;">Add Patient's Personal Information</h1>
-            <form class="form-horizontal" action="/addPatient" enctype="multipart/form-data" method="post">
+            <form class="form-horizontal" action="/patients" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
 
 

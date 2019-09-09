@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\personalInfo;
 
 class MedicationHistController extends Controller
 {
@@ -15,6 +16,7 @@ class MedicationHistController extends Controller
     public function index()
     {
         //
+        return view('admin.pages.medicationHistory.view');
     }
 
     /**
@@ -37,6 +39,19 @@ class MedicationHistController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'problem_list'=>'required',
+            'allergies_doc'=>'required',
+            'drug_abuse'=>'required',
+            'medication_used'=>'required',
+            'diag_test_res'=>'required',
+            'patient_type'=>'required',
+            'prescription'=>'required',
+            'med_conslt_info'=>'required',
+            'doc_advice'=>'required',
+        ]);
+
+        return "12345";
     }
 
     /**
@@ -82,5 +97,15 @@ class MedicationHistController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(Request $request, $id){
+        
+        $id = $request->input("patient_search");
+        $patient_id = personalInfo::find($id);
+
+        return $patient_id;
+
+        //return view('admin.pages.medicationHistory.create')->with('id',$patient_id);
     }
 }

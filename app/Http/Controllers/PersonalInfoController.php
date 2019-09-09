@@ -95,7 +95,7 @@ class PersonalInfoController extends Controller
         $fInfo->save();
         $mInfo->save();
 
-        return view('admin.pages.Info.create')->with('success','Patiented added');
+        return view('admin.pages.Info.create')->with('message','Patiented added');
     }
 
     /**

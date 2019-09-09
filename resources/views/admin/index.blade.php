@@ -125,7 +125,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/viewPatients" class="nav-link">
+                <a href="/patients" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>View Patients</p>
                 </a>
@@ -206,13 +206,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addMedicationHist" class="nav-link">
+                <a href="/medicationInfo/create" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Add History</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/viewSubjectDetails" class="nav-link">
+                <a href="/medicationInfo" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>View History</p>
                 </a>
