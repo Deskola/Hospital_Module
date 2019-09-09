@@ -16,7 +16,7 @@
       </div><!-- /.container-fluid -->
     </div>
         <h1 style="margin-left:20px;">Add Patient's Personal Information</h1>
-            <form class="form-horizontal" action="/patients/store" enctype="multipart/form-data" method="post">
+            <form class="form-horizontal" action="/addPatient" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
 
 
@@ -120,7 +120,7 @@
                         <div class="form-group">
                             <div class="col-sm-9">                                    
                                 <label for="Date_of_Birth" class=" control-label">Pregnancy complications</label>
-                                <textarea class="form-control"name="" rows="5" >{{old('')}}</textarea>                           
+                                <textarea class="form-control"name="pregnancy_complications" rows="5" >{{old('')}}</textarea>                           
                             </div>
                         </div>
                         <div class="form-group">
@@ -139,13 +139,13 @@
                             <div class="form-group">
                                 <div class="col-md-9">
                                     <label for="Date_of_Birth" class=" control-label">Weight</label>
-                                    <input type="number" class="form-control" name="weight" placeholder="weight"  required>
+                                    <input type="text" class="form-control" name="weight" placeholder="weight"  required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-9">
                                     <label for="religion" class="control-label">Height</label>
-                                    <input type="number" class="form-control" name="height" id="height" placeholder="height" required>                                    
+                                    <input type="text" class="form-control" name="height" id="height" placeholder="height" required>                                    
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                              <div class="form-group">
                                 <div class="col-sm-9">
                                     <label class=" control-label">Temperature</label>
-                                    <input type="number" class="form-control" name="temperature" id="temperature" placeholder="Temperature" required>
+                                    <input type="text" class="form-control" name="temperature" id="temperature" placeholder="Temperature" required>
                                 </div>
                             </div>
                         </div></div>

@@ -21,6 +21,7 @@ class PersonalInfoController extends Controller
         $families = familyInfo::all();
         $medicals = medicalInfo::all();
         return view('admin.pages.Info.view', compact($families, $medicals))->with('patients', $patients);
+        //return view('admin.pages.Info.view');
        
     }
 
@@ -56,7 +57,7 @@ class PersonalInfoController extends Controller
             'family_member'=>'required',
             'hereditary_diseases'=>'required',
             'mental_health_condition'=>'required',
-            'pregnancy_complication'=>'required',
+            'pregnancy_complications'=>'required',            
             'cause_of_death'=>'required',
             'weight'=>'required',
             'height'=>'required',
@@ -65,7 +66,36 @@ class PersonalInfoController extends Controller
             'medical_info'=>'required'
         ]);
 
-        return '123';
+        $pInfo = new personalInfo;
+        $pInfo->national_id = $request->input('national_id');
+        $pInfo->sur_name = $request->input('surname');
+        $pInfo->first_name = $request->input('first_name');
+        $pInfo->last_name = $request->input('other_name');
+        $pInfo->data_of_birth = $request->input('Date_of_Birth');
+        $pInfo->email = $request->input('email_address_or_phone');
+        $pInfo->residential_area = $request->input('residential_area');
+
+        $fInfo = new familyInfo;
+        $fInfo->personal_id = $request->input('national_id');
+        $fInfo->family_member = $request->input('family_member');
+        $fInfo->hereditary_disease = $request->input('hereditary_diseases');
+        $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
+        $fInfo->mental_condition = $request->input('mental_health_condition');
+        $fInfo->DR_course_o_death = $request->input('cause_of_death');
+        
+        $mInfo = new medicalInfo;
+        $mInfo->personal_id = $request->input('national_id');
+        $mInfo->weight = $request->input('weight');
+        $mInfo->height = $request->input('height');
+        $mInfo->blood_pressure = $request->input('blood_pressure');
+        $mInfo->temperature = $request->input('temperature');
+        $mInfo->Reason_for_visit = $request->input('medical_info');
+
+        $pInfo->save();
+        $fInfo->save();
+        $mInfo->save();
+
+        return view('admin.pages.Info.create')->with('success','Patiented added');
     }
 
     /**

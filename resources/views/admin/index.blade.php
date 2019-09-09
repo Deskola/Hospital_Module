@@ -125,7 +125,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/patients/index" class="nav-link">
+                <a href="/viewPatients" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>View Patients</p>
                 </a>
