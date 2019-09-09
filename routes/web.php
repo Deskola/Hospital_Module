@@ -18,8 +18,9 @@ Route::get('/', function () {
 Route::get('/dashboard','DashboardController@index');
 
 //route a patient's personal info
-Route::get('/addPatient','PagesController@personalInfo');
-Route::get('/viewpatient','PersonalInfoController@index');
+Route::get('/patients','PagesController@personalInfo');
+Route::resource('/patients','PersonalInfoController');
+// Route::post('/addPatient','PersonalInfoController@store');
 //Route::resource('personalHist','PersonalInfoController');
 
 //route to medical history

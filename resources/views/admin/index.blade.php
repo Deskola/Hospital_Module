@@ -119,13 +119,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/addPatient" class="nav-link">
+                <a href="/patients/create" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Add Patient</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/viewpatient" class="nav-link">
+                <a href="/patients/index" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>View Patients</p>
                 </a>

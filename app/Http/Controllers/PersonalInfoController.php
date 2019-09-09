@@ -32,7 +32,7 @@ class PersonalInfoController extends Controller
     public function create()
     {
         //
-        
+        return view('admin.pages.Info.create');
         
     }
 
@@ -45,6 +45,27 @@ class PersonalInfoController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'surname'=>'required',
+            'first_name'=>'required',
+            'other_name'=>'required',
+            'Date_of_Birth'=>'required',
+            'national_id'=>'required',
+            'residential_area'=>'required',
+            'email_address_or_phone'=>'required',
+            'family_member'=>'required',
+            'hereditary_diseases'=>'required',
+            'mental_health_condition'=>'required',
+            'pregnancy_complication'=>'required',
+            'cause_of_death'=>'required',
+            'weight'=>'required',
+            'height'=>'required',
+            'blood_pressure'=>'required',
+            'temperature'=>'required',
+            'medical_info'=>'required'
+        ]);
+
+        return '123';
     }
 
     /**
