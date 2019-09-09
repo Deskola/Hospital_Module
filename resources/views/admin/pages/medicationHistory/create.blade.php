@@ -22,19 +22,21 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label for="surname" class="col-sm-4 control-label">National ID</label>
-                        <form method="get" class="sidebar-form m-2" action="/searchPateint" enctype="multipart/form-data" method="post">
+                        <form action="/search" method="POST" role="search">
+                          {{ csrf_field() }}
                           <div class="input-group">
-                              <input type="text" name="patient_search" class="form-control" placeholder="Search National ID">
-                              <span class="input-group-btn">
-                              <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i>
-                              </button>
+                              <input type="text" class="form-control" name="nationl_id"
+                                  placeholder="Search users"> <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                  </button>                                  
                               </span>
                           </div>
-                      </form>
-                        
+                      </form>                        
                     </div>
                 </div>                          
-            </div>        
+            </div>
+                    
         <h1 style="margin-left:20px;">Add Patient's Medication Information</h1>
             <form class="form-horizontal" action="/medicationInfo" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}

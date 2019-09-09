@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMedicalInfosTable extends Migration
+class CreateMedicationInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateMedicalInfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('medical_infos', function (Blueprint $table) {
+        Schema::create('medication_infos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('personal_id')->index();
             $table->foreign('personal_id')->references('national_id')->on('personal_infos')->onDelete('cascade');
-            $table->float('weight');
-            $table->float('height');
-            $table->integer('temperature');
-            $table->float('blood_pressure');
-            $table->text('Reason_for_visit');
+            $table->text('problem_list');
+            $table->text('allergies');
+            $table->text('drug_abuse');
+            $table->text('current_medication');
+            $table->text('diagnostics_results');
+            $table->string('patient_type');           
             $table->timestamps();
         });
-       
     }
 
     /**
@@ -34,6 +34,6 @@ class CreateMedicalInfosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('medical_infos');
+        Schema::dropIfExists('medication_infos');
     }
 }

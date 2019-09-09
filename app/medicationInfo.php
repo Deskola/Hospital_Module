@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class familyInfo extends Model
+class medicationInfo extends Model
 {
     //
-    public function person()
+     public function person()
     {
     	$this->belongsTo('App\personalInfo');
     }

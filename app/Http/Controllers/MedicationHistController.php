@@ -99,13 +99,12 @@ class MedicationHistController extends Controller
         //
     }
 
-    public function search(Request $request, $id){
+    public function search(Request $request){
         
-        $id = $request->input("patient_search");
-        $patient_id = personalInfo::find($id);
+        $id = $request->input("nationl_id");
+        $patient_id = personalInfo::find($id);      
 
-        return $patient_id;
-
-        //return view('admin.pages.medicationHistory.create')->with('id',$patient_id);
+        // return view('admin.pages.medicationHistory.create')->with('id',$patient_id);
+        return [$patient_id->sur_name];
     }
 }
