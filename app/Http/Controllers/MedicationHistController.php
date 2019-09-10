@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\personalInfo;
+use App\medicationInfo;
+use App\treatmentInfo;
 
 class MedicationHistController extends Controller
 {
@@ -43,8 +45,8 @@ class MedicationHistController extends Controller
         if ($request->has('form1')) {
 
             $id = $request->input("nationl_id");
-            //$query = personalInfo::where('national_id',$id)->get();
-            $query = personalInfo::all();      
+            $query = personalInfo::where('national_id',$id)->get();
+            //$query = personalInfo::all();      
 
             //return view('admin.pages.medicationHistory.create')->with('query',$query);
             //return view('admin.pages.medicationHistory.create');
@@ -66,7 +68,27 @@ class MedicationHistController extends Controller
                 'doc_advice'=>'required',
             ]);
 
-            return "12345";
+            $mInfo = new medicationInfo;
+            $mInfo->personal_id = $request->input('personal_id');
+            $mInfo->problem_list = $request->input('problem_list');
+            $mInfo->allergies = $request->input('allergies_doc');
+            $mInfo->drug_abuse = $request->input('drug_abuse');
+            $mInfo->drug_abuse = $request->input('medication_used');
+            $mInfo->current_medication = $request->input('diag_test_res');
+            $mInfo->patient_type = $request->input('patient_type');
+            
+
+            $tInfo = new treatmentInfo; 
+            $tInfo->personal_id = $request->input('personal_id');
+            $tInfo->prescription = $request->input('prescription');
+            $tInfo->consultation = $request->input('med_conslt_info');
+            $tInfo->advice = $request->input('doc_advice');
+
+            $mInfo->save();
+            $tInfo->save();
+
+            return view('admin.pages.medicationHistory.create')->with('message','Success');
+
         }
 
         
