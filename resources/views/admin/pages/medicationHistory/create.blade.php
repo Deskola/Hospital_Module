@@ -36,12 +36,15 @@
                     </div>
                 </div>                          
             </div>
-            
-            
+           
+            @foreach($query as $patient)
+              <p>{{$patient->national_id}}</p>
+            @endforeach
                     
         <h1 style="margin-left:20px;">Add Patient's Medication Information</h1>
             <form class="form-horizontal" action="/medicationInfo" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
+              
 
 
 

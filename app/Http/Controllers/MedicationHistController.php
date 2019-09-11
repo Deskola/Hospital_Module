@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\personalInfo;
 use App\medicationInfo;
 use App\treatmentInfo;
@@ -44,14 +45,11 @@ class MedicationHistController extends Controller
        
         if ($request->has('form1')) {
 
-            $id = $request->input("nationl_id");
-            $query = personalInfo::where('national_id',$id)->get();
-            //$query = personalInfo::all();      
-
-            //return view('admin.pages.medicationHistory.create')->with('query',$query);
-            //return view('admin.pages.medicationHistory.create');
-            return var_dump($query);
-           // return "Search";
+            $id = $request->input("nationl_id");            
+            $query = DB::table('personal_infos')->where('national_id',$id)->get();
+            return view('admin.pages.medicationHistory.create',['query' => $query]);
+            //return view('user.index', );
+            //dd($query->national_id);
         }
 
         if ($request->has('form2')) {            
