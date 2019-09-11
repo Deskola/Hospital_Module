@@ -18,33 +18,22 @@
 
         <p class="text-info">Patient's Identification</p>
 
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <label for="surname" class="col-sm-4 control-label">National ID</label>
-                        <form action="/medicationInfo" method="POST" role="search" >
-                          {{ csrf_field() }}
-                          <div class="input-group">
-                              <input type="text" class="form-control" name="nationl_id"
-                                  placeholder="Search users"> <span class="input-group-btn">
-                                  <button type="submit" class="btn btn-primary" name="form1">
-                                    <i class="fa fa-search"></i>
-                                  </button>                                  
-                              </span>
-                          </div>
-                      </form>                        
-                    </div>
-                </div>                          
-            </div>
+                           
            
-            @foreach($query as $patient)
-              <p>{{$patient->national_id}}</p>
-            @endforeach
-                    
+               
         <h1 style="margin-left:20px;">Add Patient's Medication Information</h1>
             <form class="form-horizontal" action="/medicationInfo" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
-              
+
+              @if( count($users) > 0)
+                <div class="col-sm-8">
+                  <input list="browsers" name="national_id" id="national_id" placeholder="Search Patient's National ID Number" class="col-lg-9 custom-select custom-select-sm" required>
+                </div><datalist id="browsers">
+                  @foreach($users as $user)
+                    <option value="{{$user->national_id}}">{{$user->national_id}}</option>
+                  @endforeach
+                </datalist>                
+              @endif
 
 
 

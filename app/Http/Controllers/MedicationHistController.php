@@ -16,6 +16,8 @@ class MedicationHistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+
     public function index()
     {
         //
@@ -30,7 +32,9 @@ class MedicationHistController extends Controller
     public function create()
     {
         //
-        return view('admin.pages.medicationHistory.create');
+        $users = null;
+        $users = personalInfo::all();   
+        return view('admin.pages.medicationHistory.create')->with('users',$users);
     }
 
     /**
@@ -41,53 +45,41 @@ class MedicationHistController extends Controller
      */
     public function store(Request $request)
     {
-        //
-       
-        if ($request->has('form1')) {
+      
+            $this->validate($request,[
+            'problem_list'=>'required',
+            'allergies_doc'=>'required',
+            'drug_abuse'=>'required',
+            'medication_used'=>'required',
+            'diag_test_res'=>'required',
+            'patient_type'=>'required',
+            'prescription'=>'required',
+            'med_conslt_info'=>'required',
+            'doc_advice'=>'required',
+        ]);
 
-            $id = $request->input("nationl_id");            
-            $query = DB::table('personal_infos')->where('national_id',$id)->get();
-            return view('admin.pages.medicationHistory.create',['query' => $query]);
-            //return view('user.index', );
-            //dd($query->national_id);
-        }
+        $mInfo = new medicationInfo;
+        $mInfo->personal_id = $request->input('national_id');
+        $mInfo->problem_list = $request->input('problem_list');
+        $mInfo->allergies = $request->input('allergies_doc');
+        $mInfo->drug_abuse = $request->input('drug_abuse');
+        $mInfo->current_medication = $request->input('medication_used');
+        $mInfo->diagnostics_results = $request->input('diag_test_res');
+        $mInfo->patient_type = $request->input('patient_type');
+        
 
-        if ($request->has('form2')) {            
-            
-                $this->validate($request,[
-                'problem_list'=>'required',
-                'allergies_doc'=>'required',
-                'drug_abuse'=>'required',
-                'medication_used'=>'required',
-                'diag_test_res'=>'required',
-                'patient_type'=>'required',
-                'prescription'=>'required',
-                'med_conslt_info'=>'required',
-                'doc_advice'=>'required',
-            ]);
+        $tInfo = new treatmentInfo; 
+        $tInfo->personal_id = $request->input('national_id');
+        $tInfo->prescription = $request->input('prescription');
+        $tInfo->consultation = $request->input('med_conslt_info');
+        $tInfo->advice = $request->input('doc_advice');
 
-            $mInfo = new medicationInfo;
-            $mInfo->personal_id = $request->input('personal_id');
-            $mInfo->problem_list = $request->input('problem_list');
-            $mInfo->allergies = $request->input('allergies_doc');
-            $mInfo->drug_abuse = $request->input('drug_abuse');
-            $mInfo->drug_abuse = $request->input('medication_used');
-            $mInfo->current_medication = $request->input('diag_test_res');
-            $mInfo->patient_type = $request->input('patient_type');
-            
+        $mInfo->save();
+        $tInfo->save();
 
-            $tInfo = new treatmentInfo; 
-            $tInfo->personal_id = $request->input('personal_id');
-            $tInfo->prescription = $request->input('prescription');
-            $tInfo->consultation = $request->input('med_conslt_info');
-            $tInfo->advice = $request->input('doc_advice');
+        return view('admin.pages.medicationHistory.create')->with('message','Success');
 
-            $mInfo->save();
-            $tInfo->save();
-
-            return view('admin.pages.medicationHistory.create')->with('message','Success');
-
-        }
+        
 
         
     }
