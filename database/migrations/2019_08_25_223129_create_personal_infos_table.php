@@ -15,7 +15,9 @@ class CreatePersonalInfosTable extends Migration
     {
         Schema::create('personal_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('national_id')->unique();
+            $table->integer('national_id')->unique()->index();
+            $table->unsignedInteger('hospital_id')->index();
+            //$table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
             $table->string('sur_name');
             $table->string('first_name');
             $table->string('last_name');

@@ -78,10 +78,6 @@ class MedicationHistController extends Controller
         $tInfo->save();
 
         return view('admin.pages.medicationHistory.create')->with('message','Success');
-
-        
-
-        
     }
 
     /**

@@ -18,6 +18,18 @@
         <h1 style="margin-left:20px;">Add Patient's Personal Information</h1>
             <form class="form-horizontal" action="/patients" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
+                <p class="text-info">Hospital Name</p>
+
+                <div class="col-sm-8">
+                   <input list="browsers" name="hospital_name" id="hospital_name" placeholder="Search Hospital Name" class="col-lg-9 custom-select custom-select-sm" required>
+                    <datalist id="browsers">                                     
+                        <option value="Kenyatta">Kenyatta Hospital</option>
+                        <option value="Mbagathi">Mbagathi Hospital</option>
+                        <option value="Jaramogi">Jaramogi Hospital</option>
+                        <option value="Agha_Khan">Agha Khan Hospital</option>
+                        <option value="Getrude">Getrude Hospital</option>
+                    </datalist></div> 
+               <hr>
 
 
             <!--Check for sucess message-->
