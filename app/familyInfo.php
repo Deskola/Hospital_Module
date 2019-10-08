@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\personalInfo;
 
 class familyInfo extends Model
 {
     //
     public function person()
     {
-    	$this->belongsTo('App\personalInfo');
+    	$this->belongsTo(personalInfo::class);
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Console\AppNamespaceDetectorTrait
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hash;
+use Illuminate\Support\Facades\Input;
 use App\personalInfo;
 use App\familyInfo;
 use App\medicalInfo;
@@ -64,46 +66,53 @@ class PersonalInfoController extends Controller
             'height'=>'required',
             'blood_pressure'=>'required',
             'temperature'=>'required',
-            'medical_info'=>'required'
+            'medical_info'=>'required',
         ]);
+        $gen_pass = str_random(8);
+        $hashed_random_password = Hash::make($gen_pass);
+        $hospital_code = 123456;
+        $hospital_name = 
 
         $hosp = new Hospital;
-        $hosp->name = $request->input('hospital_name');
+        $hosp->name = $this->getAppNamespace(); 
+        $hosp->hospital_id = $hospital_code;
+
         if ($hosp->save()) {
-            $pInfo = new personalInfo;
-            $pInfo->national_id = $request->input('national_id');
-            $pInfo->hospital_id = $hosp->id;
-            $pInfo->sur_name = $request->input('surname');
-            $pInfo->first_name = $request->input('first_name');
-            $pInfo->last_name = $request->input('other_name');
-            $pInfo->data_of_birth = $request->input('Date_of_Birth');
-            $pInfo->email = $request->input('email_address_or_phone');
-            $pInfo->residential_area = $request->input('residential_area');
+                $pInfo = new personalInfo;
+                $pInfo->national_id = $request->input('national_id');
+                $pInfo->hospital_id = $hosp->id;
+                $pInfo->sur_name = $request->input('surname');
+                $pInfo->first_name = $request->input('first_name');
+                $pInfo->last_name = $request->input('other_name');
+                $pInfo->data_of_birth = $request->input('Date_of_Birth');
+                $pInfo->email = $request->input('email_address_or_phone');
+                $pInfo->password = $hashed_random_password;
+                $pInfo->residential_area = $request->input('residential_area');
 
-            $fInfo = new familyInfo;
-            $fInfo->personal_id = $request->input('national_id');
-            $fInfo->family_member = $request->input('family_member');
-            $fInfo->hereditary_disease = $request->input('hereditary_diseases');
-            $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
-            $fInfo->mental_condition = $request->input('mental_health_condition');
-            $fInfo->DR_course_o_death = $request->input('cause_of_death');
+                $fInfo = new familyInfo;
+                $fInfo->personal_id = $request->input('national_id');
+                $fInfo->family_member = $request->input('family_member');
+                $fInfo->hereditary_disease = $request->input('hereditary_diseases');
+                $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
+                $fInfo->mental_condition = $request->input('mental_health_condition');
+                $fInfo->DR_course_o_death = $request->input('cause_of_death');
+                
+                $mInfo = new medicalInfo;
+                $mInfo->personal_id = $request->input('national_id');
+                $mInfo->weight = $request->input('weight');
+                $mInfo->height = $request->input('height');
+                $mInfo->blood_pressure = $request->input('blood_pressure');
+                $mInfo->temperature = $request->input('temperature');
+                $mInfo->Reason_for_visit = $request->input('medical_info');
+
+                $pInfo->save();
+                $fInfo->save();
+                $mInfo->save();
             
-            $mInfo = new medicalInfo;
-            $mInfo->personal_id = $request->input('national_id');
-            $mInfo->weight = $request->input('weight');
-            $mInfo->height = $request->input('height');
-            $mInfo->blood_pressure = $request->input('blood_pressure');
-            $mInfo->temperature = $request->input('temperature');
-            $mInfo->Reason_for_visit = $request->input('medical_info');
-
-            $pInfo->save();
-            $fInfo->save();
-            $mInfo->save();
-
         }
-
-        
         return view('admin.pages.Info.create')->with('message','Patiented added');
+                   
+            
     }
 
     /**

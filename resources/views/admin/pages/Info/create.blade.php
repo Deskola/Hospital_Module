@@ -23,11 +23,12 @@
                 <div class="col-sm-8">
                    <input list="browsers" name="hospital_name" id="hospital_name" placeholder="Search Hospital Name" class="col-lg-9 custom-select custom-select-sm" required>
                     <datalist id="browsers">                                     
-                        <option value="Kenyatta">Kenyatta Hospital</option>
-                        <option value="Mbagathi">Mbagathi Hospital</option>
-                        <option value="Jaramogi">Jaramogi Hospital</option>
-                        <option value="Agha_Khan">Agha Khan Hospital</option>
-                        <option value="Getrude">Getrude Hospital</option>
+                        <option value="123456">Kenyatta Hospital</option>
+                        <option value="3456789">Nairobi Hospital</option>
+                        <option value="6789123">Avenue Hospital</option>
+                        <option value="2345678">Jaramogi Hospital</option>
+                        <option value="4567891">Agha Khan Hospital</option>
+                        <option value="5678912">Getrude Hospital</option>
                     </datalist></div> 
                <hr>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Rosamville School</title>
+  <title>Kenyatta National Hospital</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -80,7 +80,7 @@
     <a href="/dashboard" class="brand-link">
       <img src="/dist/img/Logo.jpg"  class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Hospital1</span>
+      <span class="brand-text font-weight-light">Kenyatta National Hospital</span>
     </a>
 
     <!-- Sidebar -->
@@ -130,15 +130,15 @@
                   <p>View Patients</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="/printStudentDetails" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Print Details</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
@@ -166,8 +166,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> -->
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-building"></i>
               <p>
@@ -195,7 +195,7 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-book"></i>
@@ -225,7 +225,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-file-text-o"></i>
               <p>
@@ -265,8 +265,8 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item has-treeview">
+          </li> -->
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-money"></i>
               <p>
@@ -286,7 +286,7 @@
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Fee Details</p>
                 </a>
-              </li>
+              </li> -->
               
       <!-- /.sidebar-menu -->
     </div> -->

@@ -23,7 +23,8 @@ class CreatePersonalInfosTable extends Migration
             $table->string('last_name');
             $table->date('data_of_birth');
             $table->string('email');
-            $table->string('residential_area');            
+            $table->string('residential_area');
+            $table->string('password');            
             $table->timestamps();
         });
     }

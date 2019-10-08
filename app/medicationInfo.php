@@ -3,12 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\personalInfo;
 
 class medicationInfo extends Model
 {
     //
      public function personalInfo()
     {
-    	$this->belongsTo('App\personalInfo');
+    	$this->belongsTo(personalInfo::class);
     }
 }
