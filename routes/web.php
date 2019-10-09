@@ -21,3 +21,5 @@ Route::get('/dashboard','DashboardController@index');
 Route::resource('/patients','PersonalInfoController');
 
 Route::resource('/medicationInfo','MedicationHistController');
+// Route::get('/medicationInfo',"MedicationHistController@create");
+// Route::post('/medicationInfo','MedicationHistController@store');

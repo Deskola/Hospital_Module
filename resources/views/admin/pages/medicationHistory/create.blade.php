@@ -25,7 +25,7 @@
             <form class="form-horizontal" action="/medicationInfo" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
 
-              @if( count($users) > 0)
+              @if(count($users) > 0)
                 <div class="col-sm-8">
                   <input list="browsers" name="national_id" id="national_id" placeholder="Search Patient's National ID Number" class="col-lg-9 custom-select custom-select-sm" required>
                 </div><datalist id="browsers">

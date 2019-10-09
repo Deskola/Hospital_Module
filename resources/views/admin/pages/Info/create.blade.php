@@ -18,19 +18,7 @@
         <h1 style="margin-left:20px;">Add Patient's Personal Information</h1>
             <form class="form-horizontal" action="/patients" enctype="multipart/form-data" method="post">
                 {{csrf_field()}}
-                <p class="text-info">Hospital Name</p>
-
-                <div class="col-sm-8">
-                   <input list="browsers" name="hospital_name" id="hospital_name" placeholder="Search Hospital Name" class="col-lg-9 custom-select custom-select-sm" required>
-                    <datalist id="browsers">                                     
-                        <option value="123456">Kenyatta Hospital</option>
-                        <option value="3456789">Nairobi Hospital</option>
-                        <option value="6789123">Avenue Hospital</option>
-                        <option value="2345678">Jaramogi Hospital</option>
-                        <option value="4567891">Agha Khan Hospital</option>
-                        <option value="5678912">Getrude Hospital</option>
-                    </datalist></div> 
-               <hr>
+                            
 
 
             <!--Check for sucess message-->
@@ -123,7 +111,7 @@
                             </div>
                             <div class="form-group">
                             <div class="col-sm-9">                                    
-                                <label for="Date_of_Birth" class=" control-label">Mental health conditionsh and Substance Abusepregnancy_complication</label>
+                                <label for="Date_of_Birth" class=" control-label">Mental health conditionsh and Substance Abuse</label>
                                 <textarea class="form-control"name="mental_health_condition" rows="5" >{{old('')}}</textarea>                            
                             </div>
                             </div>                          

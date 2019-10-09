@@ -31,10 +31,10 @@ class MedicationHistController extends Controller
      */
     public function create()
     {
-        //
-        $users = null;
-        $users = personalInfo::all();   
-        return view('admin.pages.medicationHistory.create')->with('users',$users);
+        //$users = "This is it";
+        $users = personalInfo::all();
+        //dd($users);   
+        return view('admin.pages.medicationHistory.create', compact(['users']));
     }
 
     /**
@@ -45,8 +45,8 @@ class MedicationHistController extends Controller
      */
     public function store(Request $request)
     {
-      
-            $this->validate($request,[
+        $users = personalInfo::all();
+        $this->validate($request,[
             'problem_list'=>'required',
             'allergies_doc'=>'required',
             'drug_abuse'=>'required',
@@ -77,7 +77,7 @@ class MedicationHistController extends Controller
         $mInfo->save();
         $tInfo->save();
 
-        return view('admin.pages.medicationHistory.create')->with('message','Success');
+        return view('admin.pages.medicationHistory.create',compact(['users']));
     }
 
     /**
