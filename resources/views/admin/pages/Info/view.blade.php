@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
                 <div class="col-lg-6">
-                    <h1><center>All Parents / Guardians</center></h1>
+                    <h1><center>All Patients</center></h1>
                     <form method="get" class="sidebar-form m-2">
                         <div class="input-group">
                             <input type="text" name="student_search" id="search_query" class="form-control" placeholder="Search National ID">

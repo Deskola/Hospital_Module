@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHospitalsTable extends Migration
+class CreateCentralAuthUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateHospitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hospitals', function (Blueprint $table) {
-            $table->increments('id');            
-            //$table->string('name');
-            $table->integer('hospital_id');
-            //$table->text('location');
+        Schema::connection('mysql2')->create('central_auth_users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('national_id')->index()->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateHospitalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hospitals');
+        Schema::connection('mysql2')->dropIfExists('central_auth_users');
     }
 }

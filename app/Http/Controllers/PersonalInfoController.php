@@ -6,7 +6,9 @@ use Illuminate\Container\Container;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
+use App\Mail\SendMail;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use App\personalInfo;
 use App\familyInfo;
 use App\medicalInfo;
@@ -57,7 +59,7 @@ class PersonalInfoController extends Controller
             'Date_of_Birth'=>'required',
             'national_id'=>'required',
             'residential_area'=>'required',
-            'email_address_or_phone'=>'required',
+            'email_address_or_phone'=>'required|email',
             'family_member'=>'required',
             'hereditary_diseases'=>'required',
             'mental_health_condition'=>'required',
@@ -68,15 +70,16 @@ class PersonalInfoController extends Controller
             'blood_pressure'=>'required',
             'temperature'=>'required',
             'medical_info'=>'required',
+            'hospital_code'=>'required'
         ]);
         $gen_pass = str_random(8);
         $hashed_random_password = Hash::make($gen_pass);
-        $hospital_code = 123456;
-        $hospital_name = 
+        $hospital_code = $request->input('hospitalName');
+        //$hospital_name = 
 
         $hosp = new Hospital;
-        $hosp->name = config('app.name');
-        $hosp->hospital_id = $hospital_code;
+        //$hosp->name = config('app.name');
+        $hosp->hospital_id = $request->input('hospitalName');
         if (Hospital::where('hospital_id',$hospital_code)->exists()) {
             # code...            
              $pInfo = new personalInfo;
@@ -92,15 +95,16 @@ class PersonalInfoController extends Controller
                 $pInfo->email = $request->input('email_address_or_phone');
                 $pInfo->password = $hashed_random_password;
                 $pInfo->residential_area = $request->input('residential_area');               
-                try{$pInfo->save();
-                }catch(Illuminate\Database\QueryException $e){
-                    $errorCode = $e->errorInfo[1];
-                    if($errorCode == '1062'){
-                        dd('Duplicate Entry');
-                    }
-                }
-                                
-                 # code...
+                
+                
+                $data = array(
+                    'email' => $request->input('email_address_or_phone'),
+                    'username' => $request->input('national_id'),
+                    'password' =>  $gen_pass
+                );      
+                    
+                Mail::to('denisogunde@gmail.com')->send(new SendMail($data));
+                $pInfo->save(); 
              }else{echo "";}
 
             $fInfo = new familyInfo;
@@ -175,6 +179,12 @@ class PersonalInfoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        // }catch(Illuminate\Database\QueryException $e){
+        //             $errorCode = $e->errorInfo[1];
+        //             if($errorCode == '1062'){
+        //                 dd('Duplicate Entry');
+        //             }
+        //         }
     }
 }

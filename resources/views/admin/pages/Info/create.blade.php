@@ -20,13 +20,38 @@
                 {{csrf_field()}}
                             
 
-
+            <!-- Check for error message -->
+            @if(count($errors) > 0)
+              <div class="alert alert-danger">
+                <button type="button" class="close" data-dismis="alert"></button>
+                <ul>
+                  @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                  @endforeach                  
+                </ul>                
+              </div>
+            @endif
             <!--Check for sucess message-->
                 @if(session()->has('message'))
                     <div class="alert alert-success">
                         {{session()->get('message')}}
                     </div>
                 @endif
+
+                <!-- Enter the name of the hospital -->
+                <p>Search Hospital Name</p>
+                <div class="col-sm-8">
+                    <input list="browsers" name="hospitalName" id="hospitalName" class="form-control" placeholder="Search Hospital Name">
+                </div>
+                <datalist id="browsers">
+                  <option value="1234567"> Kenyatta Hospital</option>
+                  <option value="2345678"> Jaramogi Oginga Odinga</option>
+                  <option value="3456789"> Nairobi Hospital</option>
+                  <option value="4567891"> AgaKhan Hospital</option>
+                  <option value="5678912"> Getrude Children Hospital</option>
+                  <option value="6789123"> Avenue Hospital</option>                  
+                </datalist>                     
+                
 
                   <div class="card-body">
                     <p class="text-info">Patient's Personal Information</p>
