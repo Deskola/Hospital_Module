@@ -32,5 +32,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	
 // }));
 
-Route::post('/patientLogin','PatientApiController@userLogin');
+Route::get('/patientLogin','API\PatientApiController@userLogin');
 

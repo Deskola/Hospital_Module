@@ -13,6 +13,8 @@ use App\personalInfo;
 use App\familyInfo;
 use App\medicalInfo;
 use App\Hospital;
+use App\CentralAuthUser;
+use App\CentralAuthHospital;
 class PersonalInfoController extends Controller
 {
     /**
@@ -70,21 +72,43 @@ class PersonalInfoController extends Controller
             'blood_pressure'=>'required',
             'temperature'=>'required',
             'medical_info'=>'required',
-            'hospital_code'=>'required'
+            'hospitalName'=>'required'
         ]);
+
         $gen_pass = str_random(8);
         $hashed_random_password = Hash::make($gen_pass);
         $hospital_code = $request->input('hospitalName');
-        //$hospital_name = 
 
-        $hosp = new Hospital;
-        //$hosp->name = config('app.name');
+        $hosp = new Hospital;        
         $hosp->hospital_id = $request->input('hospitalName');
+        $hosp->name = 'Kenyatta Hospital';
         if (Hospital::where('hospital_id',$hospital_code)->exists()) {
-            # code...            
-             $pInfo = new personalInfo;
-             $user_id = $request->input('national_id');
-             if (!personalInfo::where('hospital_id',$user_id)->exists()) {
+
+            $pInfo = new personalInfo;
+            $user_id = $request->input('national_id');
+            if (personalInfo::where('hospital_id',$user_id)->exists()) {
+
+                $fInfo = new familyInfo;
+                //$fInfo->personal_id = $request->input('national_id');
+                $fInfo->personal_id = $pInfo->national_id;
+                $fInfo->family_member =  $request->input('family_member');
+                $fInfo->hereditary_disease = $request->input('hereditary_diseases');
+                $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
+                $fInfo->mental_condition = $request->input('mental_health_condition');
+                $fInfo->DR_course_o_death = $request->input('cause_of_death');
+                
+                $mInfo = new medicalInfo;
+                $mInfo->personal_id = $pInfo->national_id;
+                $mInfo->weight = $request->input('weight');
+                $mInfo->height = $request->input('height');
+                $mInfo->blood_pressure = $request->input('blood_pressure');
+                $mInfo->temperature = $request->input('temperature');
+                $mInfo->Reason_for_visit = $request->input('medical_info');
+
+                $fInfo->save();
+                $mInfo->save();
+
+            }else{
 
                 $pInfo->national_id = $request->input('national_id');
                 $pInfo->hospital_id = $hosp->hospital_id;
@@ -94,47 +118,94 @@ class PersonalInfoController extends Controller
                 $pInfo->data_of_birth = $request->input('Date_of_Birth');
                 $pInfo->email = $request->input('email_address_or_phone');
                 $pInfo->password = $hashed_random_password;
-                $pInfo->residential_area = $request->input('residential_area');               
-                
-                
-                $data = array(
-                    'email' => $request->input('email_address_or_phone'),
-                    'username' => $request->input('national_id'),
-                    'password' =>  $gen_pass
-                );      
-                    
-                Mail::to('denisogunde@gmail.com')->send(new SendMail($data));
-                $pInfo->save(); 
-             }else{echo "";}
+                $pInfo->residential_area = $request->input('residential_area');
 
-            $fInfo = new familyInfo;
-            //$fInfo->personal_id = $request->input('national_id');
-            $fInfo->personal_id = $request->input('national_id');
-            $fInfo->family_member = $pInfo->national_id;
-            $fInfo->hereditary_disease = $request->input('hereditary_diseases');
-            $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
-            $fInfo->mental_condition = $request->input('mental_health_condition');
-            $fInfo->DR_course_o_death = $request->input('cause_of_death');
-            
-            $mInfo = new medicalInfo;
-            $mInfo->personal_id = $pInfo->national_id;
-            $mInfo->weight = $request->input('weight');
-            $mInfo->height = $request->input('height');
-            $mInfo->blood_pressure = $request->input('blood_pressure');
-            $mInfo->temperature = $request->input('temperature');
-            $mInfo->Reason_for_visit = $request->input('medical_info');
+                if($pInfo->save()){
+                        $data = array(
+                        'email' => $pInfo->email,
+                        'username' => $pInfo->national_id,
+                        'password' =>  $gen_pass
+                    );      
+                        
+                    Mail::to($data['email'])->send(new SendMail($data));
 
-            $fInfo->save();
-            $mInfo->save();
-                
+                    $caUser = new CentralAuthUser;
+                    $caUser->national_id = $pInfo->national_id;
+                    $caUser->password = $pInfo->password;
+                    $caUser->save();
+
+                    $caHosp = new CentralAuthHospital;
+                    $caHosp->hospital_id = $pInfo->hospital_id;
+                    $caHosp->national_id = $pInfo->national_id;
+                    $caHosp->logo = 'https://firebasestorage.googleapis.com/v0/b/medical-history-bd709.appspot.com/o/hospital_logo%2FKNH.jpg?alt=media&token=7a7e187e-253d-47a2-96be-bf8b4564f706';
+                    $caHosp->save();
+
+                }
+            } 
+
         }else{
             $hosp->save();
-        }
 
-        
-        return view('admin.pages.Info.create')->with('message','Patiented added');
-                   
-            
+            $pInfo = new personalInfo;
+            $user_id = $request->input('national_id');
+            if (personalInfo::where('hospital_id',$user_id)->exists()) {
+
+                $fInfo = new familyInfo;
+                //$fInfo->personal_id = $request->input('national_id');
+                $fInfo->personal_id = $pInfo->national_id;
+                $fInfo->family_member =  $request->input('family_member');
+                $fInfo->hereditary_disease = $request->input('hereditary_diseases');
+                $fInfo->pregnancy_complications = $request->input('pregnancy_complications');
+                $fInfo->mental_condition = $request->input('mental_health_condition');
+                $fInfo->DR_course_o_death = $request->input('cause_of_death');
+                
+                $mInfo = new medicalInfo;
+                $mInfo->personal_id = $pInfo->national_id;
+                $mInfo->weight = $request->input('weight');
+                $mInfo->height = $request->input('height');
+                $mInfo->blood_pressure = $request->input('blood_pressure');
+                $mInfo->temperature = $request->input('temperature');
+                $mInfo->Reason_for_visit = $request->input('medical_info');
+
+                $fInfo->save();
+                $mInfo->save();
+
+            }else{
+
+                $pInfo->national_id = $request->input('national_id');
+                $pInfo->hospital_id = $hosp->hospital_id;
+                $pInfo->sur_name = $request->input('surname');
+                $pInfo->first_name = $request->input('first_name');
+                $pInfo->last_name = $request->input('other_name');
+                $pInfo->data_of_birth = $request->input('Date_of_Birth');
+                $pInfo->email = $request->input('email_address_or_phone');
+                $pInfo->password = $hashed_random_password;
+                $pInfo->residential_area = $request->input('residential_area');
+
+                if($pInfo->save()){
+                        $data = array(
+                        'email' => $pInfo->email,
+                        'username' => $pInfo->national_id,
+                        'password' =>  $gen_pass
+                    );      
+                        
+                    Mail::to($data['email'])->send(new SendMail($data));
+
+                    $caUser = new CentralAuthUser;
+                    $caUser->national_id = $pInfo->national_id;
+                    $caUser->password = $pInfo->password;
+                    $caUser->save();
+
+                    $caHosp = new CentralAuthHospital;
+                    $caHosp->hospital_id = $pInfo->hospital_id;
+                    $caHosp->national_id = $pInfo->national_id;
+                    $caHosp->logo = 'https://firebasestorage.googleapis.com/v0/b/medical-history-bd709.appspot.com/o/hospital_logo%2FKNH.jpg?alt=media&token=7a7e187e-253d-47a2-96be-bf8b4564f706';
+                    $caHosp->save();
+
+                }
+            }
+        }
+        return view('admin.pages.Info.create')->with('messages','messages');
     }
 
     /**
