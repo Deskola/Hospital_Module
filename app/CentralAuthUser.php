@@ -10,6 +10,6 @@ class CentralAuthUser extends Model
 	protected $connection = 'mysql2';
     public function centralAuthHospital()
     {
-    	return $this->hasMany(CentralAuthHospital::class);
+    	return $this->belongsTo(CentralAuthHospital::class);
     }
 }

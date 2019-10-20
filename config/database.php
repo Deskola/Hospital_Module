@@ -58,8 +58,8 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE_2', 'forge'),
-            'username' => env('DB_USERNAME_2', 'forge'),
+            'database' => env('DB_DATABASE_2', 'cadb'),
+            'username' => env('DB_USERNAME_2', 'root'),
             'password' => env('DB_PASSWORD_2', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',//changed

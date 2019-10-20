@@ -32,12 +32,13 @@
               </div>
             @endif
             <!--Check for sucess message-->
-                @if(session()->has('message'))
-                    <div class="alert alert-success">
-                        {{session()->get('message')}}
-                    </div>
-                @endif
-
+            @if($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismis="alert"></button>
+                <strong>{{ $message}}</strong>
+              </div>
+            @endif
+                
                 <!-- Enter the name of the hospital -->
                 <p>Search Hospital Name</p>
                 <div class="col-sm-8">

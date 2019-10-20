@@ -11,6 +11,7 @@ return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Hospital' => $baseDir . '/app/Hospital.php',
+    'App\\HospitalVisited' => $baseDir . '/app/HospitalVisited.php',
     'App\\Http\\Controllers\\API\\PatientApiController' => $baseDir . '/app/Http/Controllers/API/PatientApiController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',

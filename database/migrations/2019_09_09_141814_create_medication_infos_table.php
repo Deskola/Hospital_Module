@@ -15,8 +15,8 @@ class CreateMedicationInfosTable extends Migration
     {
         Schema::create('medication_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('personal_id')->index();
-            $table->foreign('personal_id')->references('national_id')->on('personal_infos')->onDelete('cascade');
+            $table->integer('national_id')->index();
+            $table->foreign('national_id')->references('national_id')->on('personal_infos')->onDelete('cascade');
             $table->text('problem_list');
             $table->text('allergies');
             $table->text('drug_abuse');

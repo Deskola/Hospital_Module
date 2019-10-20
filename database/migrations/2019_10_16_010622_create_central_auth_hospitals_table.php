@@ -15,9 +15,9 @@ class CreateCentralAuthHospitalsTable extends Migration
     {
         Schema::connection('mysql2')->create('central_auth_hospitals', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('hospital_id');
-            $table->integer('national_id')->index();
-            $table->foreign('national_id')->references('national_id')->on('central_auth_users')->onDelete('cascade');
+            $table->integer('hospital_id')->index();                     
+            $table->string('hospital_name');
+            $table->text('location');
             $table->binary('logo');
             $table->timestamps();
         });

@@ -8,6 +8,7 @@ use App\Hospital;
 use App\medicalInfo;
 use App\treatmentInfo;
 use App\medicationInfo;
+use App\HospitalVistited;
 
 class personalInfo extends Model
 {
@@ -33,5 +34,10 @@ class personalInfo extends Model
     public function medicationInfo()
     {
     	return $this->hasMany(medicationInfo::class);
+    }
+
+    public function hospitalVistited()
+    {
+        return $this->hasMany(HospitalVistited::class);
     }
 }

@@ -29,7 +29,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('denisogunde@gmail.com')->subject('Kenyatta Hospital
+        return $this->from('denisogunde@gmail.com')->subject('MedHist Mobile App
          Login Credential')->view('admin.pages.mails.dynamic_mail_template')->with(
             'data',$this->data);
     }

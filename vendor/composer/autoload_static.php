@@ -354,6 +354,7 @@ class ComposerStaticInit9e494484eb0207d70207602ee396c7c9
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Hospital' => __DIR__ . '/../..' . '/app/Hospital.php',
+        'App\\HospitalVisited' => __DIR__ . '/../..' . '/app/HospitalVisited.php',
         'App\\Http\\Controllers\\API\\PatientApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/PatientApiController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',

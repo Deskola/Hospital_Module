@@ -1,4 +1,4 @@
-<p>Greetings from Kenyatta Hospital</p>
+<p>Greetings from <b>{{ $data['name'] }}</b></p>
 <p>Dear {{ $data['email']}}</p>
 <p>Below are you ModHist Mobile Application Login information </p>
 <ul>

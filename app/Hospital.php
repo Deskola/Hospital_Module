@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\personalinfo;
+//use App\HospitalVisited;
 class Hospital extends Model
 {
     //
@@ -11,4 +12,9 @@ class Hospital extends Model
     {
     	return $this->hasMany(personalinfo::class);
     }
+
+    // public function hospitalVisited()
+    // {
+    // 	return $this->hasMany(HospitalVisited::class);
+    // }
 }
